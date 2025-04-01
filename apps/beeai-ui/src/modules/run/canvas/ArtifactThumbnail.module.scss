@@ -14,13 +14,33 @@
  * limitations under the License.
  */
 
-export enum UiType {
-  Chat = 'chat',
-  HandsOff = 'hands-off',
-  Custom = 'custom'
+.root {
+  background: transparent;
+  box-shadow: $box-shadow;
+  padding: rem(12px);
+  column-gap: rem(8px);
+  @include font-family('sans');
+  @include type-style('heading-01');
+  color: $text-primary;
 }
 
-export interface RunStats {
-  startTime?: number;
-  endTime?: number;
+.icon {
+  background-color: $layer-02;
+  flex: 0 0 rem(40px);
+  height: rem(40px);
+  justify-content: center;
+}
+
+.root,
+.icon {
+  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-right: rem(12px);
 }

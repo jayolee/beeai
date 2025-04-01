@@ -1,0 +1,75 @@
+/**
+ * Copyright 2025 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.toolbar {
+  position: absolute;
+  display: flex;
+  animation: appear 0.2s;
+  background: $text-dark;
+  border-radius: $border-radius;
+
+  button {
+    border-radius: 0;
+  }
+
+  > button {
+    border-right: 1px solid $background-inverse;
+  }
+
+  > :first-child {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+}
+
+.spacing {
+  padding-right: rem(32px);
+}
+
+.highlight span {
+  background: $highlight;
+  mix-blend-mode: multiply;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.beeQuestionInput {
+  padding: rem(8px) rem(12px);
+  position: relative;
+
+  input {
+    width: rem(352px);
+    color: $text-inverse;
+    padding-right: rem(44px); //send button space
+  }
+
+  .action {
+    position: absolute;
+    top: 50%;
+    right: rem(24px);
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

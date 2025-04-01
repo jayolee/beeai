@@ -1,0 +1,103 @@
+/**
+ * Copyright 2025 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@use '@carbon/styles/scss/utilities/button-reset';
+
+$avatar-padding-left: $spacing-04 + rem(32px);
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-02;
+}
+
+.sender {
+  display: flex;
+  align-items: center;
+  gap: $spacing-04;
+
+  .senderIcon {
+    inline-size: rem(32px);
+  }
+
+  .senderName {
+    color: $text-secondary;
+    font-size: rem(12px);
+    line-height: math.div(16, 12);
+  }
+}
+
+.body {
+  padding-inline-start: $avatar-padding-left;
+}
+
+.content {
+  font-size: rem(16px);
+  line-height: math.div(26, 16);
+
+  :has(.artifactThumbnail) {
+    color: $text-secondary;
+  }
+}
+
+.user .content {
+  @include font-family(serif);
+}
+
+.empty {
+  color: $text-disabled;
+}
+
+.thumbnailButton {
+  @include button-reset.reset();
+  border-radius: $border-radius;
+  border: 2px solid transparent;
+  padding: 0;
+  margin-top: rem(12px);
+  margin-right: 4px;
+  display: block;
+
+  &:hover {
+    background: $layer-hover-01;
+  }
+
+  &:active,
+  &.selected {
+    border: 2px solid $button-primary;
+  }
+}
+
+.quotedArtifact {
+  padding: rem(12px);
+  margin-bottom: rem(12px);
+  background: $layer-02;
+  border-radius: $border-radius;
+  @include font-family(sans);
+
+  > :first-child {
+    white-space: pre-wrap;
+    @include type-style('body-01');
+  }
+
+  > :last-child {
+    justify-content: flex-start;
+    margin-top: rem(12px);
+
+    button {
+      color: $text-dark;
+    }
+  }
+}

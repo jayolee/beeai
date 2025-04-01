@@ -16,4 +16,4 @@
 
 import { UiType } from './types';
 
-export const SupportedUis: UiType[] = [UiType.Chat, UiType.HandsOff];
+export const SupportedUis: UiType[] = [UiType.Chat, UiType.HandsOff, UiType.Custom];

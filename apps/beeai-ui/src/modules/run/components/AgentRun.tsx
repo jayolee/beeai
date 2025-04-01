@@ -24,6 +24,8 @@ import { Chat } from '../chat/Chat';
 import { ChatProvider } from '../contexts/chat/ChatProvider';
 import { HandsOffProvider } from '../contexts/hands-off/HandsOffProvider';
 import { HandsOff } from '../hands-off/HandsOff';
+import { CanvasProvider } from '../contexts/canvas/CanvasProvider';
+import { Canvas } from '../canvas/Canvas';
 import { UiType } from '../types';
 import classes from './AgentRun.module.scss';
 
@@ -75,6 +77,12 @@ const renderUi = ({ agent }: { agent: Agent }) => {
         <HandsOffProvider agent={agent}>
           <HandsOff />
         </HandsOffProvider>
+      );
+    case UiType.Custom:
+      return (
+        <CanvasProvider agent={agent}>
+          <Canvas />
+        </CanvasProvider>
       );
     default:
       return (

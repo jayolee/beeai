@@ -1,0 +1,91 @@
+/**
+ * Copyright 2025 IBM Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+:global(.cds--white) {
+  .tokenAttr {
+    color: $purple-60;
+  }
+
+  .tokenSelector {
+    color: $red-70;
+  }
+
+  .tokenFunction {
+    color: $yellow-60;
+  }
+
+  .tokenPunctuation {
+    color: $green-50;
+  }
+
+  .tokenOperator {
+    color: $warm-gray-60;
+  }
+
+  .tokenComment {
+    color: $warm-gray-60;
+  }
+
+  .tokenProperty {
+    color: $cyan-60;
+  }
+
+  .tokenVariable {
+    color: $red-70;
+  }
+
+  .attrName {
+    color: $red-50;
+  }
+}
+
+:global(.cds--g90) {
+  .tokenAttr {
+    color: $purple-40;
+  }
+
+  .tokenSelector {
+    color: $orange-30;
+  }
+
+  .tokenFunction {
+    color: $yellow-30;
+  }
+
+  .tokenPunctuation {
+    color: $cyan-40;
+  }
+
+  .tokenOperator {
+    color: $warm-gray-20;
+  }
+
+  .tokenComment {
+    color: $warm-gray-20;
+  }
+
+  .tokenProperty {
+    color: $cyan-40;
+  }
+
+  .tokenVariable {
+    color: $orange-30;
+  }
+
+  .attrName {
+    color: $cyan-30;
+  }
+}

@@ -30,12 +30,15 @@ $max-container: get-value($grid-breakpoints, 'max.width');
 
 .leftPane,
 .rightPane {
-  @include scrollbar();
   min-inline-size: 0;
   padding: $grid-margin;
   display: flex;
   flex-direction: column;
   min-block-size: 0;
+}
+
+.leftPane:not(.noScroll) {
+  @include scrollbar();
 }
 
 .leftPane {
@@ -44,6 +47,11 @@ $max-container: get-value($grid-breakpoints, 'max.width');
   .content {
     max-inline-size: calc(math.div($max-container, 3) - var(--scrollbar-width, 0px));
     margin-inline-start: auto;
+  }
+  &.noScroll .content {
+    max-inline-size: calc(
+      33rem + $grid-margin * 2 - var(--scrollbar-width, 0px)
+    ); // include grid margin to prevent scrollbar appearing with padding
   }
 }
 

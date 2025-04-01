@@ -14,13 +14,16 @@
  * limitations under the License.
  */
 
-export enum UiType {
-  Chat = 'chat',
-  HandsOff = 'hands-off',
-  Custom = 'custom'
-}
+import { registerCodeHighlighting } from '@lexical/code';
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { useEffect } from 'react';
 
-export interface RunStats {
-  startTime?: number;
-  endTime?: number;
+export function CodeHighlightPlugin() {
+  const [editor] = useLexicalComposerContext();
+
+  useEffect(() => {
+    return registerCodeHighlighting(editor);
+  }, [editor]);
+
+  return null;
 }

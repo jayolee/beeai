@@ -23,22 +23,24 @@ import { moderate02 } from '@carbon/motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { PropsWithChildren, ReactNode } from 'react';
 import classes from './SplitPanesView.module.scss';
+import clsx from 'clsx';
 
 interface Props {
   leftPane: ReactNode;
   rightPane: ReactNode;
   isSplit?: boolean;
   spacing?: MainContentViewProps['spacing'];
+  noLeftScroll?: boolean;
 }
 
-export function SplitPanesView({ leftPane, rightPane, isSplit, spacing }: Props) {
+export function SplitPanesView({ leftPane, rightPane, isSplit, spacing, noLeftScroll }: Props) {
   const { ref: leftPaneRef, scrollbarWidth } = useScrollbarWidth();
 
   return (
     <AnimatePresence mode="wait">
       {isSplit ? (
         <Wrapper key="split-view" className={classes.splitView} immediateExit>
-          <div className={classes.leftPane} ref={leftPaneRef} {...createScrollbarStyles({ width: scrollbarWidth })}>
+          <div className={clsx(classes.leftPane, noLeftScroll ? classes.noScroll : '')} ref={leftPaneRef} {...createScrollbarStyles({ width: scrollbarWidth })}>
             <div className={classes.content}>{leftPane}</div>
           </div>
 
