@@ -204,9 +204,9 @@ export function CanvasProvider({ agent, children }: PropsWithChildren<Props>) {
 
   return (
     <ChatContext.Provider value={contextValue}>
-      <ArtifactContext.Provider value={artifactContextValue}>
-        <ChatMessagesContext.Provider value={messages}>{children}</ChatMessagesContext.Provider>
-      </ArtifactContext.Provider>
+      <ChatMessagesContext.Provider value={messages}>
+        <ArtifactContext.Provider value={artifactContextValue}>{children}</ArtifactContext.Provider>
+      </ChatMessagesContext.Provider>
     </ChatContext.Provider>
   );
 }

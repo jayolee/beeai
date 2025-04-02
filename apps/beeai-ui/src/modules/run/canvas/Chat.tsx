@@ -66,6 +66,10 @@ export function Chat() {
     };
   }, []);
 
+  useEffect(() => {
+    scrollToBottom(); //scrolling for canvas questioning
+  }, [messages.length, scrollToBottom]);
+
   return (
     <>
       <AgentHeader agent={agent} className={classes.header} onNewSessionClick={onClear} />

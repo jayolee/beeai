@@ -40,7 +40,11 @@ export function SplitPanesView({ leftPane, rightPane, isSplit, spacing, noLeftSc
     <AnimatePresence mode="wait">
       {isSplit ? (
         <Wrapper key="split-view" className={classes.splitView} immediateExit>
-          <div className={clsx(classes.leftPane, noLeftScroll ? classes.noScroll : '')} ref={leftPaneRef} {...createScrollbarStyles({ width: scrollbarWidth })}>
+          <div
+            className={clsx(classes.leftPane, noLeftScroll ? classes.noScroll : '')}
+            ref={leftPaneRef}
+            {...createScrollbarStyles({ width: scrollbarWidth })}
+          >
             <div className={classes.content}>{leftPane}</div>
           </div>
 

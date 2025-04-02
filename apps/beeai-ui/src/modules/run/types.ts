@@ -17,7 +17,7 @@
 export enum UiType {
   Chat = 'chat',
   HandsOff = 'hands-off',
-  Custom = 'custom'
+  Custom = 'custom',
 }
 
 export interface RunStats {

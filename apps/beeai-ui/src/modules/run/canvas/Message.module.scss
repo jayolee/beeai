@@ -92,7 +92,7 @@ $avatar-padding-left: $spacing-04 + rem(32px);
     @include type-style('body-01');
   }
 
-  > :last-child {
+  > :nth-child(2) {
     justify-content: flex-start;
     margin-top: rem(12px);
 
