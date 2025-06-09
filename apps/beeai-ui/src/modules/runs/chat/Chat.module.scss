@@ -17,10 +17,6 @@
 .root {
   block-size: 100%;
   display: flex;
-
-  &.isNew {
-    align-items: center;
-  }
 }
 
 .holder {
@@ -30,6 +26,10 @@
   > *:not(:last-child) {
     margin-block-end: $spacing-06;
   }
+
+  .isNew & {
+    margin-block: auto;
+  }
 }
 
 .header {
@@ -38,6 +38,7 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-06;
+
     h1 {
       margin: 0;
     }

@@ -46,10 +46,12 @@ export function AppHeader({ className }: Props) {
           {toggleBelowHeader && agent ? <AppName /> : <MainNav />}
 
           {NAV.length > 0 && <AppHeaderNav items={NAV} />}
+
           {!NAV.length && agent && (
             <>
               <p className={classes.agentName}>{getAgentDisplayName(agent)}</p>
-              <div className={classes.alignEnd}>
+
+              <div className={classes.agentDetailButtonContainer}>
                 <AgentDetailButton />
               </div>
             </>
