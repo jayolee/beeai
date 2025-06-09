@@ -21,12 +21,14 @@ import { MainNav } from '#components/layouts/MainNav.tsx';
 import { useAgent } from '#modules/agents/api/queries/useAgent.ts';
 import type { AgentPageParams } from '#modules/agents/types.ts';
 import { getAgentDisplayName } from '#modules/agents/utils.ts';
-import { APP_NAME, NAV, SIDEBAR_VARIANT } from '#utils/vite-constants.ts';
+import { isSidebarToggleBelowHeader } from '#modules/sidebar/isSidebarToggleBelowHeader.ts';
+import { NAV } from '#utils/vite-constants.ts';
 
 import { Container } from '../layouts/Container';
 import { AgentDetailButton } from './AgentDetailButton';
 import classes from './AppHeader.module.scss';
 import { AppHeaderNav } from './AppHeaderNav';
+import { AppName } from './AppName';
 
 interface Props {
   className?: string;
@@ -35,13 +37,13 @@ interface Props {
 export function AppHeader({ className }: Props) {
   const { agentName } = useParams<AgentPageParams>();
   const { data: agent } = useAgent({ name: agentName ?? '' });
-  const toggleBelowHeader = SIDEBAR_VARIANT === 'toggle-below-header';
+  const toggleBelowHeader = isSidebarToggleBelowHeader();
 
   return (
     <header className={clsx(classes.root, className)}>
       <Container size="full">
         <div className={clsx(classes.holder, { [classes.hasNav]: NAV.length > 0 })}>
-          {toggleBelowHeader && agent ? <span className={classes.appName}>{APP_NAME}</span> : <MainNav />}
+          {toggleBelowHeader && agent ? <AppName /> : <MainNav />}
 
           {NAV.length > 0 && <AppHeaderNav items={NAV} />}
           {!NAV.length && agent && (

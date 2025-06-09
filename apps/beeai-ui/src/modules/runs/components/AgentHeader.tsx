@@ -18,7 +18,7 @@ import clsx from 'clsx';
 
 import type { Agent } from '#modules/agents/api/types.ts';
 import { getAgentDisplayName } from '#modules/agents/utils.ts';
-import { SIDEBAR_VARIANT } from '#utils/vite-constants.ts';
+import { isSidebarToggleBelowHeader } from '#modules/sidebar/isSidebarToggleBelowHeader.ts';
 
 import { AgentIcon } from '../components/AgentIcon';
 import classes from './AgentHeader.module.scss';
@@ -32,7 +32,7 @@ interface Props {
 }
 
 export function AgentHeader({ agent, onNewSessionClick, className, hideButton }: Props) {
-  const sidebarToggleBelowHeader = SIDEBAR_VARIANT === 'toggle-below-header';
+  const sidebarToggleBelowHeader = isSidebarToggleBelowHeader();
 
   if (sidebarToggleBelowHeader)
     return (

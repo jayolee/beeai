@@ -14,30 +14,13 @@
  * limitations under the License.
  */
 
-.root {
-  position: sticky;
-  inset-block-start: 0;
-  background-color: $background;
-  border-block-end: 1px solid $border-subtle-00;
-  z-index: 1;
-}
+import { z } from 'zod';
 
-.holder {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  column-gap: $gap;
-  align-items: center;
-  block-size: rem(56px);
-  .alignEnd {
-    text-align: end;
-  }
+export const SidebarVariantEnum = {
+  TOGGLE_IN_HEADER: 'toggle-in-header',
+  TOGGLE_BELOW_HEADER: 'toggle-below-header',
+};
 
-  &.hasNav {
-    grid-template-columns: auto 1fr;
-  }
-}
+export const sidebarVariantSchema = z.nativeEnum(SidebarVariantEnum);
 
-.agentName {
-  font-size: rem(14px);
-  line-height: math.div(20, 14);
-}
+export type SidebarVariant = z.infer<typeof sidebarVariantSchema>;

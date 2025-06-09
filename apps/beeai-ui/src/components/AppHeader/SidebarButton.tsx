@@ -23,8 +23,8 @@ import { useApp } from '#contexts/App/index.ts';
 import { useAgent } from '#modules/agents/api/queries/useAgent.ts';
 import type { AgentPageParams } from '#modules/agents/types.ts';
 import { getAgentDisplayName } from '#modules/agents/utils.ts';
-import { APP_NAME } from '#utils/vite-constants.ts';
 
+import { AppName } from './AppName';
 import classes from './SidebarButton.module.scss';
 
 export function SidebarButton() {
@@ -43,7 +43,7 @@ export function SidebarButton() {
         <Menu />
       </IconButton>
 
-      <span className={classes.label}>{APP_NAME}</span>
+      <AppName />
     </div>
   );
 }
@@ -54,7 +54,7 @@ export function SidebarButtonWAgentName() {
   const { setNavigationOpen, navigationOpen } = useApp();
 
   return agent ? (
-    <div className={clsx(classes.root, classes.belowHeader)}>
+    <div className={clsx(classes.root, classes.wAgentName)}>
       <div className={classes.button}>
         <Button
           kind={navigationOpen ? 'ghost' : 'tertiary'}

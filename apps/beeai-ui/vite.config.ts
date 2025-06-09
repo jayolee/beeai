@@ -6,11 +6,12 @@ import { defineConfig, loadEnv, type UserConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
 import { loadFile } from './src/utils/files/loadFile';
+import { SidebarVariantEnum } from '#modules/sidebar/schema.ts';
 
 const DEFAULT_ENV = {
   VITE_APP_NAME: 'BeeAI',
   VITE_APP_FAVICON_SVG: '/bee.svg',
-  VITE_APP_SIDEBAR_VARIANT: 'toggle-in-header',
+  VITE_APP_SIDEBAR_VARIANT: SidebarVariantEnum.TOGGLE_IN_HEADER,
   VITE_API_SERVER_TARGET: 'http://localhost:8333',
   VITE_PHOENIX_SERVER_TARGET: 'http://localhost:6006',
 } as const;

@@ -14,30 +14,10 @@
  * limitations under the License.
  */
 
-.root {
-  position: sticky;
-  inset-block-start: 0;
-  background-color: $background;
-  border-block-end: 1px solid $border-subtle-00;
-  z-index: 1;
-}
+import { APP_NAME } from '#utils/vite-constants.ts';
 
-.holder {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  column-gap: $gap;
-  align-items: center;
-  block-size: rem(56px);
-  .alignEnd {
-    text-align: end;
-  }
+import classes from './AppName.module.scss';
 
-  &.hasNav {
-    grid-template-columns: auto 1fr;
-  }
-}
-
-.agentName {
-  font-size: rem(14px);
-  line-height: math.div(20, 14);
+export function AppName() {
+  return <span className={classes.appName}>{APP_NAME}</span>;
 }
